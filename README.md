@@ -27,7 +27,7 @@ This chatbot transforms unstructured research questions into structured API quer
 - **Intent: `distribution`**  
   Builds and visualizes a histogram for a selected continuous variable, with optional filters.
 
-- **Intent: `metadata`**  
+- **Intent: `information`**  
   Summarizes available datasets or variables, often grouped by relevance or concept.
 
 - **Multi-turn conversation support**  
