@@ -46,7 +46,7 @@ This section explains how to set up and run the PIC-SURE Chatbot locally.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/picsure-chatbot.git
+git clone https://github.com/hms-dbmi/pic-sure-chatbot.git
 cd picsure-chatbot/back
 ```
 
