@@ -1,0 +1,27 @@
+# ==========================================
+# Project Requirements
+# This file lists only the direct dependencies of the project.
+# ==========================================
+
+# === AWS & API communication ===
+boto3==1.38.46            # AWS SDK for Python; used to interact with Amazon Bedrock
+requests==2.32.4          # Used to call external APIs like PIC-SURE
+
+# === Data manipulation ===
+pandas==1.5.3             # For data handling and tabular manipulation
+numpy==1.23.5             # Numerical operations and arrays used for data analysis
+python-dateutil==2.9.0.post0  # Date handling, used by pandas
+pytz==2025.2              # Timezone management, also used by pandas
+
+# === Plotting ===
+matplotlib==3.9.4         # Data visualization (histograms, plots)
+
+# === YAML config ===
+PyYAML==6.0.2             # For parsing prompt templates written in YAML
+
+# === Version management (optional but useful) ===
+packaging==25.0           # Useful for comparing software versions (if needed)
+
+# === Notes ===
+# - We exclude indirect dependencies to keep this list clean.
+# - If you want to pin all installed packages (e.g., for deployment), use `pip freeze`.
