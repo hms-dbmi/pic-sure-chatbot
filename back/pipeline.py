@@ -18,7 +18,10 @@ from utils.distribution import (
 )
 from utils.information import information_from_metadata  # Intent: 'metadata' → summary answer
 
-from confidential import PICSURE_TOKEN, PICSURE_API_URL # Secure credentials
+try:
+    from confidential import PICSURE_TOKEN, PICSURE_API_URL # Secure credentials
+except ImportError:
+    raise ImportError("Please create back/confidential.py based on confidential_template.py")
 
 
 # --------------------------------------------
