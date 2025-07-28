@@ -81,6 +81,17 @@ You can obtain your token via the PIC-SURE platform or from your institution.
 
 ### 5. Run the Chatbot
 
+- 🔐 AWS Authentication (required)
+This project requires access to Amazon Bedrock via AWS SSO.
+  - Make sure you are logged in:
+     ```bash
+     aws sso login --profile nhanes-dev
+     ```
+  - Set your AWS profile for the current terminal session:
+    ```bash
+    export AWS_PROFILE=nhanes-dev
+    ```
+
 Use the pipeline entry point, to start a conversational session:
 
 ```bash
