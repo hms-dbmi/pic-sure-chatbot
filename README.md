@@ -43,14 +43,16 @@ This chatbot transforms unstructured research questions into structured API quer
 
 This section explains how to set up and run the PIC-SURE Chatbot locally.
 
-### 1. Clone the Repository
+### 🔧 Option 1: Local Setup with Python
+
+#### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/hms-dbmi/pic-sure-chatbot.git
 cd picsure-chatbot/back
 ```
 
-### 2. Set Up a Python Virtual Environment
+#### 2. Set Up a Python Virtual Environment
 
 We recommend using `venv` to isolate dependencies.
 
@@ -59,7 +61,7 @@ python3 -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 ```
 
-### 3. Install Requirements
+#### 3. Install Requirements
 
 All dependencies are listed in `requirements.txt`.  
 Make sure this file exists at the root of `back/`.
@@ -68,7 +70,7 @@ Make sure this file exists at the root of `back/`.
 pip install -r requirements.txt
 ```
 
-### 4. Configure Access Credentials
+#### 4. Configure Access Credentials
 
 Create or modify the `confidential.py` file (already included), and ensure it contains:
 
@@ -79,7 +81,7 @@ PICSURE_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."  # Secure API token
 
 You can obtain your token via the PIC-SURE platform or from your institution.
 
-### 5. Run the Chatbot
+#### 5. Run the Chatbot
 
 - 🔐 AWS Authentication (required)
 This project requires access to Amazon Bedrock via AWS SSO.
@@ -98,21 +100,31 @@ Use the pipeline entry point, to start a conversational session:
 python pipeline.py
 ```
 
-This will:
-- Prompt the user for input
-- Route the intent (count, distribution, metadata)
-- Call the LLM via Amazon Bedrock
-- Format and return the output
+### 🐳 Option 2: Using Docker (Recommended for Reproducibility)
 
-### 6. View Saved Outputs (Optional)
+This method lets you run the chatbot in a fully isolated environment without installing Python locally.
 
-- Plots are saved in the `plots/` folder
-- Debug info can be printed to console if enabled inside each module
+#### 1. Build the Docker Image
+From the root of the repository:
+
+```bash
+docker build -t pic-sure-chatbot .
+```
+
+#### 2. Run the Chatbot in a Container
+```bash
+docker run -it pic-sure-chatbot
+```
+You can also access a bash shell inside the container for development:
+```bash
+docker run -it pic-sure-chatbot /bin/bash
+```
 
 ### ✅ Environment Recap
 
 - Python ≥ 3.9 recommended
 - Dependencies: `boto3`, `requests`, `matplotlib`, `pandas`, `pyyaml`, etc.
+- Docker alternative available (Dockerfile included)
 - Amazon credentials must be set via AWS CLI or `~/.aws/credentials` for Bedrock access
 
 Need help? Reach out via Issues or email the author.
