@@ -113,7 +113,10 @@ docker build -t pic-sure-chatbot .
 
 #### 2. Run the Chatbot in a Container
 ```bash
-docker run -it pic-sure-chatbot
+docker run -it \
+  -v ~/.aws:/root/.aws \
+  -e AWS_PROFILE=nhanes-dev \
+  pic-sure-chatbot
 ```
 You can also access a bash shell inside the container for development:
 ```bash
